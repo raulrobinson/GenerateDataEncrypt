@@ -70,7 +70,10 @@
           class="jumbotron"
         >
           <label class="h3"><strong>Username Encrypted:</strong></label>
-          <textarea class="form-control" rows="4">{{ usernameEnc }}</textarea>
+          <textarea class="form-control" rows="5"
+                    #myInput (copy)="onCopy($event)"
+                    (click)="copyToClipboard(myInput.value)"
+          >{{ usernameEnc }}</textarea>
         </header>
       </div>
       <div class="container mt-3">
@@ -79,7 +82,10 @@
           class="jumbotron"
         >
           <label class="h3"><strong>Password Encrypted:</strong></label>
-          <textarea class="form-control" rows="4">{{ passwordEnc }}</textarea>
+          <textarea class="form-control" rows="5"
+                    #myInput (copy)="onCopy($event)"
+                    (click)="copyToClipboard(myInput.value)"
+          >{{ passwordEnc }}</textarea>
         </header>
       </div>
     </div>

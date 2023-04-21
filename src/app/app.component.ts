@@ -44,4 +44,21 @@ export class AppComponent {
       return  `with: ${reason}`;
     }
   }
+
+  onCopy(event: ClipboardEvent) {
+    event.preventDefault();
+    if (event.clipboardData) {
+      // @ts-ignore
+      event.clipboardData.setData('text/plain', window.getSelection()?.toString());
+    }
+  }
+
+  copyToClipboard(text: string) {
+    const tempInput = document.createElement('input');
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+  }
 }
