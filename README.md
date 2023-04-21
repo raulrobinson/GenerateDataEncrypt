@@ -1,5 +1,9 @@
 # Helper Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+Code developed by the IA of ChatGPT for Angular.
 
-Test purposes ..
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+### Click on the textarea and the code will be automatically copied to memory.
