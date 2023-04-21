@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from "./auth.service";
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,14 @@ import {AuthService} from "./auth.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  closeResult: string = '';
 
   form: any = {
     username: null,
     password: null
   };
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private modalService: NgbModal) { }
   title = 'helper-angular';
   usernameEnc: any;
   passwordEnc: any;
@@ -23,5 +25,23 @@ export class AppComponent {
     const res = this.authService.login(username, password);
     this.usernameEnc = res.usernameEncrypted;
     this.passwordEnc = res.passwordEncrypted;
+  }
+
+  open(content:any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 }

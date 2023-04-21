@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mt-3">
         <label
           style="font-size: 18px; font-weight: 700;"
         >Password</label>
@@ -51,27 +51,40 @@
         </div>
       </div>
       <div class="form-group mt-3 mb-3">
-        <button class="btn btn-block btn-lg btn-outline-primary">
+        <button class="btn btn-block btn-lg btn-outline-primary" (click)="open(mymodal)">
           Create Encryption
         </button>
       </div>
     </form>
-
-    <header
-      *ngIf="usernameEnc"
-      class="jumbotron"
-    >
-      <label><strong>Username Encrypted:</strong></label>
-      <p>{{ usernameEnc }}</p>
-    </header>
-
-    <header
-      *ngIf="passwordEnc"
-      class="jumbotron"
-    >
-      <label><strong>Password Encrypted:</strong></label>
-      <p>{{ passwordEnc }}</p>
-    </header>
-
   </div>
 </div>
+
+<ng-template #mymodal let-modal>
+  <div class="text-center"
+       *ngIf="usernameEnc && passwordEnc"
+  >
+    <div class="modal-body">
+      <div class="container">
+        <header
+          *ngIf="usernameEnc"
+          class="jumbotron"
+        >
+          <label class="h3"><strong>Username Encrypted:</strong></label>
+          <textarea class="form-control" rows="4">{{ usernameEnc }}</textarea>
+        </header>
+      </div>
+      <div class="container mt-3">
+        <header
+          *ngIf="passwordEnc"
+          class="jumbotron"
+        >
+          <label class="h3"><strong>Password Encrypted:</strong></label>
+          <textarea class="form-control" rows="4">{{ passwordEnc }}</textarea>
+        </header>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-block btn-lg btn-outline-primary" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </div>
+</ng-template>
