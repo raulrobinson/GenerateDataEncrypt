@@ -7,15 +7,14 @@
       style="width: 250px;"
     />
     <form
-      *ngIf="!isLoggedIn"
       name="form"
       (ngSubmit)="f.form.valid && onSubmit()"
       #f="ngForm"
       novalidate
     >
       <div class="form-group">
-        <label for="username"
-               style="font-size: 18px; font-weight: 700;"
+        <label
+          style="font-size: 18px; font-weight: 700;"
         >Username: </label>
         <input
           type="text"
@@ -28,14 +27,14 @@
           style="font-size: 36px;"
         />
         <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
-          Se requiere un Usuario!
+          Username is required! ...
         </div>
       </div>
 
       <div class="form-group">
-        <label for="password"
-               style="font-size: 18px; font-weight: 700;"
-        >Contraseña</label>
+        <label
+          style="font-size: 18px; font-weight: 700;"
+        >Password</label>
         <input
           type="text"
           class="form-control text-center"
@@ -48,12 +47,12 @@
           style="font-size: 36px;"
         />
         <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
-          <div *ngIf="password.errors['required']">Se requiere una contraseña..</div>
+          <div *ngIf="password.errors['required']">Password is required ... </div>
         </div>
       </div>
       <div class="form-group mt-3 mb-3">
         <button class="btn btn-block btn-lg btn-outline-primary">
-          Crear Encryption
+          Create Encryption
         </button>
       </div>
     </form>
@@ -62,7 +61,7 @@
       *ngIf="usernameEnc"
       class="jumbotron"
     >
-      <label><strong>Usuario Encriptado:</strong></label>
+      <label><strong>Username Encrypted:</strong></label>
       <p>{{ usernameEnc }}</p>
     </header>
 
@@ -70,7 +69,7 @@
       *ngIf="passwordEnc"
       class="jumbotron"
     >
-      <label><strong>Password Encriptado:</strong></label>
+      <label><strong>Password Encrypted:</strong></label>
       <p>{{ passwordEnc }}</p>
     </header>
 

@@ -16,7 +16,6 @@ export class AuthService {
 
   /* LEEMOS LA LLAVE PUBLICA */
   publicKey = forge.pki.publicKeyFromPem(publicKeyPem);
-  data: string[] = [];
 
   constructor() { }
 
@@ -58,6 +57,5 @@ export class AuthService {
     console.log('Password encrypted: ', base64EncryptedPassword);
 
     return base64EncryptedPassword;
-
   }
 }
