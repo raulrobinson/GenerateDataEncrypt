@@ -1,11 +1,5 @@
-<div class="container-fluid col-md-6 mt-5" >
-  <div class="card card-container p-5 bg-light">
-    <img
-      id="profile-img"
-      src="../assets/chatgpt.png"
-      class="profile-img-card align-content-center mb-2"
-      style="width: 250px;"
-    />
+<div class="container-fluid col-md-4 mt-5" >
+  <div class="card card-container p-3 bg-light">
     <form
       name="form"
       (ngSubmit)="f.form.valid && onSubmit()"
@@ -92,8 +86,10 @@
         </header>
       </div>
     </div>
+    <label class="form-label" style="font-size: 26px; font-weight: 700;">Click on the textarea... </label>
+    <label class="form-label" style="font-size: 26px; font-weight: 700;">Content automatically copied to memory</label>
     <div class="modal-footer">
-      <button type="button" class="btn btn-block btn-lg btn-outline-primary" (click)="modal.close('Save click')">Ok</button>
+      <button type="button" class="btn btn-lg btn-outline-primary" (click)="modal.close('Save click')">Ok</button>
     </div>
   </div>
 </ng-template>

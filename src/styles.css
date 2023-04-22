@@ -2,7 +2,11 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 body {
-  background-image: url("assets/img.png");
+  background-image: url("assets/amazing-animal-beautiful-beautifull.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: 'Rajdhani', sans-serif;
 }
 
