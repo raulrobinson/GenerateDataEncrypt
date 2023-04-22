@@ -1,6 +1,6 @@
 # Helper Angular
 
-Code developed by the IA of ChatGPT for Angular.
+Generator for encrypted data.
 
 ![img.png](img.png)
 
